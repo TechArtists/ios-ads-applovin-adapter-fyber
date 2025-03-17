@@ -1,0 +1,64 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name IASDKCore
+import Accelerate
+import AdSupport
+import AppTrackingTransparency
+import AudioToolbox
+import Foundation
+@_exported import IASDKCore
+import StoreKit
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import os
+extension Foundation.OperatingSystemVersion : Swift.Comparable {
+  public static func == (lhs: Foundation.OperatingSystemVersion, rhs: Foundation.OperatingSystemVersion) -> Swift.Bool
+  public static func < (lhs: Foundation.OperatingSystemVersion, rhs: Foundation.OperatingSystemVersion) -> Swift.Bool
+}
+extension Foundation.OperatingSystemVersion : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public struct DTXConsentEvaluator {
+  public enum Consent : Swift.Int {
+    case unknown
+    case denied
+    case given
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  public struct ConsentData {
+  }
+  public func evaluatePurpose(with purposeConsents: Swift.String?, tcfPurposeEnabled: Swift.Bool) -> Swift.Bool
+  public func evaluateConsentData(with tcfVendorId: Swift.Int, vendorConsentsString: Swift.String?, tcString: Swift.String?, gdprConsentString: Swift.String?, gdprConsent: IASDKCore.DTXConsentEvaluator.Consent) -> IASDKCore.DTXConsentEvaluator.ConsentData
+}
+@objc public enum DTXLogLevel : Swift.Int {
+  case off = 0
+  case fault = 1
+  case error = 2
+  case info = 3
+  case debug = 4
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(DTXLogger) public class DTXLogger : ObjectiveC.NSObject {
+  @objc public static func setLogLevel(_ logLevel: IASDKCore.DTXLogLevel)
+  @objc deinit
+}
+extension IASDKCore.DTXConsentEvaluator.Consent : Swift.Equatable {}
+extension IASDKCore.DTXConsentEvaluator.Consent : Swift.Hashable {}
+extension IASDKCore.DTXConsentEvaluator.Consent : Swift.RawRepresentable {}
+extension IASDKCore.DTXLogLevel : Swift.Equatable {}
+extension IASDKCore.DTXLogLevel : Swift.Hashable {}
+extension IASDKCore.DTXLogLevel : Swift.RawRepresentable {}

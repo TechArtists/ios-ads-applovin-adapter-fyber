@@ -1,0 +1,6 @@
+framework module FyberAppLovinAdapterFramework {
+  umbrella header "FyberAppLovinAdapterFramework.h"
+  export *
+
+  module * { export * }
+}
